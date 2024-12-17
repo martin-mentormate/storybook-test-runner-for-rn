@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 const preview: Preview = {
   parameters: {
@@ -30,6 +31,21 @@ const preview: Preview = {
       // Optional flag to prevent the automatic check
       manual: true,
     },
+    viewport: {
+      viewports: {
+        desktop: {
+          name: "Default",
+          styles: { width: "1440px", height: "900px" },
+          type: "desktop"
+        },
+        mobile: {
+          name: "Mobile",
+          styles: { width: "375px", height: "660px" },
+          type: "mobile"
+        },
+      },
+      defaultViewport: 'Default',
+    }
   },
 };
 

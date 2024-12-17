@@ -12,6 +12,7 @@ const config: TestRunnerConfig = {
     expect.extend({ toMatchImageSnapshot });
   },
   async preVisit(page) {
+    await page.setViewportSize({ width: 1440, height: 900 })
     await injectAxe(page);
   },
   async postVisit(page, context) {
@@ -25,7 +26,15 @@ const config: TestRunnerConfig = {
     
     expect(image).toMatchImageSnapshot({
       customSnapshotsDir,
-      customSnapshotIdentifier: context.id,
+      customSnapshotIdentifier: `${context.id}-lg`,
+    });
+
+    await page.setViewportSize({ width: 375, height: 700 })
+    const mobileImage = await page.screenshot()
+    
+    expect(mobileImage).toMatchImageSnapshot({
+      customSnapshotsDir,
+      customSnapshotIdentifier: `${context.id}-xs`,
     });
   },
 };

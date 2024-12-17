@@ -5,7 +5,7 @@ import { View } from 'react-native';
 const meta = {
   decorators: [
     (Story) => (
-      <View style={{ padding: 12, backgroundColor: "#eee"}}>
+      <View style={{ padding: 12}}>
         {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
         <Story />
       </View>

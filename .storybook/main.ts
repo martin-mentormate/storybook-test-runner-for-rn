@@ -27,7 +27,6 @@ const config: StorybookConfig = {
       name: "@storybook/addon-coverage",
       options: coverageConfig
     }
-    // "@storybook/addon-coverage"
   ],
   framework: "@storybook/react-webpack5",
   webpackFinal: async (config) => {
